@@ -1,5 +1,5 @@
 # Öğrenci Numarası: 1030520833
-# Öğrenci Adı: Buket BEKER
+# Öğrenci Adı: BUKET BEKER
 # Ders Adı: BS441 Web Yazılım Geliştirme
 
 
