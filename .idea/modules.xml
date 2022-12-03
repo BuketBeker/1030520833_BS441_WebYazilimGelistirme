@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/1030520833_BS441_WebYazilimGelistirme.iml" filepath="$PROJECT_DIR$/.idea/1030520833_BS441_WebYazilimGelistirme.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/reactapplication.iml" filepath="$PROJECT_DIR$/.idea/reactapplication.iml" />
+>>>>>>> 44e7259bcce378a2adc40b999a73387f711341af
     </modules>
   </component>
 </project>
