@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  },
+  " scripts " : {
+    "dev": " webpack -dev - server --open --mode development ",
+    " build ": " webpack --mode production "
+  },
+  " devDependencies ": {
+    " webpack ": "ˆ4.16.5",
+    " webpack -cli": "ˆ3.1.0",
+    " webpack -dev - server ": "ˆ3.1.5",
+    " @babel /cli": "7.7.4",
+    " @babel / core ": "7.7.4",
+    " @babel /preset -env": "7.7.4",
+    "babel - jest ": "24.9.0"
+  },
+  " babel ": {
+  " presets ": [" @babel /env"]
+  }
+}
