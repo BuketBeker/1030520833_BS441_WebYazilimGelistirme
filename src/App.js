@@ -5,7 +5,6 @@ import tas from './tas.jpeg';
 import kagit from './kagit.jpeg';
 import makas from './makas.jpeg';
 
-
 function App() {
   const [playerHand, setPlayerHand] = useState(0);
   const [computerHand, setComputerHand] = useState(0);
