@@ -14,7 +14,10 @@ function App() {
       winner: '',
       message: ''
   });
-
+  const [score, setScore] = useState({
+      player: 0,
+      computer: 0
+  });
   useEffect(() => {
       if(runTimer && timer > 0){
           setTimeout(() => {
@@ -35,6 +38,7 @@ function App() {
   ];
 
   const selectOption = (handIndex) => {
+      //setResults({winner: '', message: ''}); //koymayabilirsin
       setPlayerHand(handIndex);
   };
 
@@ -44,14 +48,37 @@ function App() {
   };
 
   const start = () => {
-      setRunTimer(true);
+     setResults({winner: '', message: ''});
+     setRunTimer(true);
      generateComputerHand();
   };
   const play = () => {
       if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Taş'){
           setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'});
+      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Kağıt'){
+          setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'})
+      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Makas'){
+          setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'})
+      } else if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Kağıt'){
+          setResults({winner: 'Computer', message: 'Kağıt taşı yener'})
+          setScore({...score, computer: score.computer + 1})
+      } else if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Makas'){
+          setResults({winner: 'Player', message: 'Taş makası yener'})
+          setScore({...score, player: score.player + 1})
+      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Taş'){
+          setResults({winner: 'Player', message: 'Kağıt taşı yener'})
+          setScore({...score, player: score.player + 1})
+      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Makas'){
+          setResults({winner: 'Computer', message: 'Makas kağıdı yener'})
+          setScore({...score, computer: score.computer + 1})
+      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Taş'){
+          setResults({winner: 'Computer', message: 'Taş makası yener'})
+          setScore({...score, computer: score.computer + 1})
+      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Kağıt'){
+          setResults({winner: 'Player', message: 'Makas kağıdı yener'})
+          setScore({...score, player: score.player + 1})
       }
-    };
+  };
   console.log('playerHand is:', playerHand);
   console.log('computerHand is:', computerHand);
 
@@ -64,28 +91,40 @@ function App() {
         <div className={styles.scoreCtn}>
             <div className={styles.score}>
                 <h3>Player</h3>
-                <p>Score: 0</p>
+                <p>Score: {score.player}</p>
             </div>
             <div className={styles.score}>
                 <h3>Computer</h3>
-                <p>Score: 0</p>
+                <p>Score: {score.computer}</p>
             </div>
         </div>
         <div className={styles.results}>
             <div className={styles.playerHand}>
                 {runTimer && <div className={styles.playerShake}>{options[0].icon}</div>}
-
-                {/*options[playerHand].icon}
-                <p>{options[playerHand].name}</p>*/}
+                {results?.winner && (
+                    <>
+                        {options[playerHand].icon}
+                        <p>{options[playerHand].name}</p>
+                    </>
+                )}
             </div>
             <div className={styles.midCol}>
                 {runTimer && <p className={styles.timer}>{timer}</p>}
+                {results?.winner && (
+                    <>
+                        <p className={styles.resultsWinner}>Winner: {results.winner}</p>
+                        <p className={styles.resultsMessage}>{results.message}</p>
+                    </>
+                )}
             </div>
             <div className={styles.computerHand}>
                 {runTimer && <div className={styles.computerShake}>{options[0].icon}</div>}
-
-                {/*options[computerHand].icon}
-                <p>{options[computerHand].name}</p>*/}
+                {results?.winner && (
+                    <>
+                        {options[computerHand].icon}
+                        <p>{options[computerHand].name}</p>
+                    </>
+                    )}
             </div>
         </div>
         <div className={styles.choiceBtnCtn}>
