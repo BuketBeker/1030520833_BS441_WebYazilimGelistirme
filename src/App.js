@@ -6,12 +6,12 @@ import kagit from './kagit.jpeg';
 import makas from './makas.jpeg';
 
 function App() {
-  const [playerHand, setPlayerHand] = useState(0);
-  const [computerHand, setComputerHand] = useState(0);
+  const [player, setPlayer] = useState(0);
+  const [computer, setComputer] = useState(0);
   const [timer, setTimer] = useState(3);
   const [runTimer, setRunTimer] = useState(false);
   const [results, setResults] = useState({
-      winner: '',
+      kazanan: '',
       message: ''
   });
   const [score, setScore] = useState({
@@ -38,49 +38,49 @@ function App() {
   ];
 
   const selectOption = (handIndex) => {
-      //setResults({winner: '', message: ''}); //koymayabilirsin
-      setPlayerHand(handIndex);
+      //setResults({kazanan: '', message: ''}); //koymayabilirsin
+      setPlayer(handIndex);
   };
 
-  const generateComputerHand = () => {
+  const generateComputer = () => {
       const randomNumber = Math.floor(Math.random() * 3);
-      setComputerHand(randomNumber);
+      setComputer(randomNumber);
   };
 
   const start = () => {
-     setResults({winner: '', message: ''});
+     setResults({kazanan: '', message: ''});
      setRunTimer(true);
-     generateComputerHand();
+     generateComputer();
   };
   const play = () => {
-      if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Taş'){
-          setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'});
-      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Kağıt'){
-          setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'})
-      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Makas'){
-          setResults({winner: 'Hiç kimse', message: 'Berabere kaldınız'})
-      } else if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Kağıt'){
-          setResults({winner: 'Computer', message: 'Kağıt taşı yener'})
+      if (options[player].name === 'Taş' && options[computer].name === 'Taş'){
+          setResults({kazanan: 'Hiç kimse', message: 'Berabere kaldınız'});
+      } else if (options[player].name === 'Kağıt' && options[computer].name === 'Kağıt'){
+          setResults({kazanan: 'Hiç kimse', message: 'Berabere kaldınız'})
+      } else if (options[player].name === 'Makas' && options[computer].name === 'Makas'){
+          setResults({kazanan: 'Hiç kimse', message: 'Berabere kaldınız'})
+      } else if (options[player].name === 'Taş' && options[computer].name === 'Kağıt'){
+          setResults({kazanan: 'Computer', message: 'Kağıt taşı yener'})
           setScore({...score, computer: score.computer + 1})
-      } else if (options[playerHand].name === 'Taş' && options[computerHand].name === 'Makas'){
-          setResults({winner: 'Player', message: 'Taş makası yener'})
+      } else if (options[player].name === 'Taş' && options[computer].name === 'Makas'){
+          setResults({kazanan: 'Player', message: 'Taş makası yener'})
           setScore({...score, player: score.player + 1})
-      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Taş'){
-          setResults({winner: 'Player', message: 'Kağıt taşı yener'})
+      } else if (options[player].name === 'Kağıt' && options[computer].name === 'Taş'){
+          setResults({kazanan: 'Player', message: 'Kağıt taşı yener'})
           setScore({...score, player: score.player + 1})
-      } else if (options[playerHand].name === 'Kağıt' && options[computerHand].name === 'Makas'){
-          setResults({winner: 'Computer', message: 'Makas kağıdı yener'})
+      } else if (options[player].name === 'Kağıt' && options[computer].name === 'Makas'){
+          setResults({kazanan: 'Computer', message: 'Makas kağıdı yener'})
           setScore({...score, computer: score.computer + 1})
-      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Taş'){
-          setResults({winner: 'Computer', message: 'Taş makası yener'})
+      } else if (options[player].name === 'Makas' && options[computer].name === 'Taş'){
+          setResults({kazanan: 'Computer', message: 'Taş makası yener'})
           setScore({...score, computer: score.computer + 1})
-      } else if (options[playerHand].name === 'Makas' && options[computerHand].name === 'Kağıt'){
-          setResults({winner: 'Player', message: 'Makas kağıdı yener'})
+      } else if (options[player].name === 'Makas' && options[computer].name === 'Kağıt'){
+          setResults({kazanan: 'Player', message: 'Makas kağıdı yener'})
           setScore({...score, player: score.player + 1})
       }
   };
-  console.log('playerHand is:', playerHand);
-  console.log('computerHand is:', computerHand);
+  console.log('player is:', player);
+  console.log('computer is:', computer);
 
   return (
     <div className={styles.container}>
@@ -88,7 +88,7 @@ function App() {
           <h1>TAŞ - KAĞIT - MAKAS</h1>
           <p>React Game!</p>
         </div>
-        <div className={styles.scoreCtn}>
+        <div className={styles.scoreContainer}>
             <div className={styles.score}>
                 <h3>Player</h3>
                 <p>Score: {score.player}</p>
@@ -99,30 +99,30 @@ function App() {
             </div>
         </div>
         <div className={styles.results}>
-            <div className={styles.playerHand}>
-                {runTimer && <div className={styles.playerShake}>{options[0].icon}</div>}
-                {results?.winner && (
+            <div className={styles.player}>
+                {runTimer && <div className={styles.playerHand}>{options[0].icon}</div>}
+                {results?.kazanan && (
                     <>
-                        {options[playerHand].icon}
-                        <p>{options[playerHand].name}</p>
+                        {options[player].icon}
+                        <p>{options[player].name}</p>
                     </>
                 )}
             </div>
             <div className={styles.midCol}>
                 {runTimer && <p className={styles.timer}>{timer}</p>}
-                {results?.winner && (
+                {results?.kazanan && (
                     <>
-                        <p className={styles.resultsWinner}>Winner: {results.winner}</p>
+                        <p className={styles.resultsWinner}>Kazanan: {results.kazanan}</p>
                         <p className={styles.resultsMessage}>{results.message}</p>
                     </>
                 )}
             </div>
-            <div className={styles.computerHand}>
-                {runTimer && <div className={styles.computerShake}>{options[0].icon}</div>}
-                {results?.winner && (
+            <div className={styles.computer}>
+                {runTimer && <div className={styles.computerHand}>{options[0].icon}</div>}
+                {results?.kazanan && (
                     <>
-                        {options[computerHand].icon}
-                        <p>{options[computerHand].name}</p>
+                        {options[computer].icon}
+                        <p>{options[computer].name}</p>
                     </>
                     )}
             </div>
