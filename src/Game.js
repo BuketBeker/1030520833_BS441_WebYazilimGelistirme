@@ -86,7 +86,7 @@ function Game() {
         <div className={styles.container}>
             <div className={styles.titleCtn}>
                 <h1>TAŞ - KAĞIT - MAKAS</h1>
-                <p>React Game!</p>
+                <p>Bu oyun modu 2 bilgisayar arasında gerçekleşmektedir. Oyna butonuna tıklamanız yeterlidir.</p>
             </div>
             <div className={styles.scoreContainer}>
                 <div className={styles.score}>

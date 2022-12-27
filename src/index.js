@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import styles from './index.css';
 import App from './App';
 import Game from './Game';
 import reportWebVitals from './reportWebVitals';
 import {Link, Route, Routes} from "react-router-dom";
 import {BrowserRouter as Router} from 'react-router-dom';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
         <div>
-            <nav className={styles.nav}>
+            <nav style={{textAlign: "center", marginTop: 10, marginBottom: 10}}>
                 <button>
                     <Link to="/app">Oyun Modu 1</Link>
                 </button>

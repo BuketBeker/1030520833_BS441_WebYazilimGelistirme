@@ -86,7 +86,9 @@ function App() {
     <div className={styles.container}>
         <div className={styles.titleCtn}>
           <h1>TAŞ - KAĞIT - MAKAS</h1>
-          <p>React Game!</p>
+          <p>Bu oyun modu 1 Bilgisayar ve 1 Oyuncu ile oynanmaktadır. Aşağıda bulunan Taş, Kağıt, Makas seçeneklerinden birine tıklayıp
+              Oyna butonuna tıklamanız yeterlidir.
+          </p>
         </div>
         <div className={styles.scoreContainer}>
             <div className={styles.score}>
