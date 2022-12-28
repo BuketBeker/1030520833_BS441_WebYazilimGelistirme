@@ -86,7 +86,9 @@ function Game() {
         <div className={styles.container}>
             <div className={styles.titleCtn}>
                 <h1>TAŞ - KAĞIT - MAKAS</h1>
-                <p>Bu oyun modu 2 bilgisayar arasında gerçekleşmektedir. Oyna butonuna tıklamanız yeterlidir.</p>
+                <p>Bu oyun modu <b>2 Bilgisayar</b> arasında gerçekleşmektedir. <b>Oyna</b> butonuna tıklamanız yeterlidir.</p>
+                <p>Oyna butonuna her tıkladığınızda iki bilgisayar kendi seçeneklerini seçerler ve ekrana kazanan bilgisayar yazılır.</p>
+                <p>Sonuca göre kazanan oyuncunun score alanı güncellenir.</p>
             </div>
             <div className={styles.scoreContainer}>
                 <div className={styles.score}>

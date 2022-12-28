@@ -86,9 +86,24 @@ function App() {
     <div className={styles.container}>
         <div className={styles.titleCtn}>
           <h1>TAŞ - KAĞIT - MAKAS</h1>
-          <p>Bu oyun modu 1 Bilgisayar ve 1 Oyuncu ile oynanmaktadır. Aşağıda bulunan Taş, Kağıt, Makas seçeneklerinden birine tıklayıp
-              Oyna butonuna tıklamanız yeterlidir.
-          </p>
+            <p>Bu oyun modu <b>1 Bilgisayar</b> ve <b>1 Oyuncu</b> ile oynanmaktadır. Aşağıda bulunan Taş, Kağıt, Makas seçeneklerinden birine tıklayıp
+                <b> Oyna</b> butonuna tıklamanız yeterlidir.
+            </p>
+            <p>
+                Oyna butonuna tıkladıktan sonra bilgisayarın oynaması beklenmektedir. 3 saniyenin sonunda sonuç açıklanır. Kazanan kişinin score kısmı
+                güncellenir.
+            </p>
+            <p>
+                Sonuç açıklandıktan sonra tekrardan aşağıda bulunan Taş, Kağıt, Makas seçeneklerinden biri seçilir. Bu şekilde adımlar tekrarlanarak oyun
+                oynanır.
+            </p>
+            <p>
+                Eğer oyunun daha sonrasında herhangi bir seçeneği seçmezseniz bir önceki seçeneğiniz seçili olarak oyuna devam eder.
+            </p>
+            <p>
+                Eğer oyunun en başında herhangi bir seçenek seçmezseniz otomatik Taş seçeneği seçilir.
+            </p>
+
         </div>
         <div className={styles.scoreContainer}>
             <div className={styles.score}>
